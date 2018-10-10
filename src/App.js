@@ -6,25 +6,17 @@ class App extends Component{
     name: 'homie',
     age:  '25'
   }
-  
-  // function which anable  to click
-  handleClick = (e) => {
-    // console.log(e.target);
-   
+
+  // function unable user to input in fields
+  handleChange = (e) =>{
     this.setState({
-      name: 'wise',
-      age: '30'
+      name: e.target.value,
     });
-    console.log(this.state);
   }
 
-  // function which anable Mouse move over
-  handleMouseOver = (e) =>{
-    console.log(e.target, e.pageX)
-  }
-  // function sends you massege when your copying 
-  handleCopy = (e) => {
-    console.log('Try beign original for once!');
+  // function for submit form
+  handleSubmit = (e) =>{
+    e.preventDefault();
   }
 
   render(){
@@ -33,11 +25,11 @@ class App extends Component{
         <h1>Refuge wise</h1>
         <p>my name is {this.state.name} and I'm {this.state.age} old</p>
 
-        <button onClick={this.handleClick}>Click Me</button>
-        
-        <button onMouseOver={this.handleMouseOver}>On mouse</button>
+        <form onSubmit={this.handleSubmit}> 
+            <input type="text" onChange={this.handleChange}/><br/><br/>
+            <button>Submit</button>
+        </form>
 
-        <p onCopy={this.handleCopy}>What do you think, you want to be came</p>
       </div>
     )
   }
