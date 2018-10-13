@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class dataApp extends Component{
+class Dataapp extends Component{
     state = {
       name: 'homie',
       age:  '25'
@@ -34,4 +34,4 @@ class dataApp extends Component{
     }
   }
   
-  export default dataApp;
+  export default Dataapp;
