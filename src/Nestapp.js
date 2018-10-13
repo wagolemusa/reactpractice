@@ -2,12 +2,23 @@ import React, { Component } from 'react';
 
 class Nestapp extends Component {
     render(){
-        const { name, age, belt } = this.props;
+
+        // function for calling in array
+        const { ningas } = this.props;
+
+        // functin to display each data from array
+        const ningasList = ningas.map(show => {
+            return (
+                <div className="nest" key={show.id}>
+                <div>Name: {show.name}</div><br/>
+                <div>Age:  {show.age}</div><br/>
+                <div>Balt: {show.belt}</div><br/>
+            </div>
+            )
+        })
         return (
-            <div className="nest">
-                <div>Name: {name}</div>
-                <div>Age:  {age}</div>
-                <div>Balt: {belt}</div>
+            <div className="ninja">
+                { ningasList}
             </div>
         )
     }
