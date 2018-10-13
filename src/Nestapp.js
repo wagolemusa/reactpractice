@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Nestapp extends Component {
-    render(){
+// function
+const  Nestapp = ({ ningas }) => {
 
         // function for calling in array
-        const { ningas } = this.props;
+        // const { ningas } = props;
 
         // functin to display each data from array
         const ningasList = ningas.map(show => {
@@ -22,5 +22,5 @@ class Nestapp extends Component {
             </div>
         )
     }
-} 
+
 export default Nestapp;
