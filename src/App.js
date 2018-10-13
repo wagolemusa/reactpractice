@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Dataapp from './Dataapp';
 import Nestapp from './Nestapp'
+import AddNiga from './AddNiga';
 
 class App extends Component{
 
@@ -18,6 +19,7 @@ class App extends Component{
         {/* <Dataapp /> */}
   
         <Nestapp ningas = {this.state.ningas} />
+        <AddNiga />
       </div>
 
     )
