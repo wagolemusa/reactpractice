@@ -14,7 +14,7 @@ class AddNiga extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault();
-        console.log(this.state);
+        this.props.AddData(this.state);
     }
     render(){
         return (
