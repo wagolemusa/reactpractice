@@ -13,13 +13,24 @@ class App extends Component{
 
     ]
   }
+
+// function to add data
+  AddData = (savedata) =>{
+    savedata.id = Math.random();
+    let ningas = [...this.state.ningas, savedata];
+    this.setState({
+      ningas: ningas
+    })
+
+  }
+
   render(){
     return (
       <div className="app-connect">
         {/* <Dataapp /> */}
   
         <Nestapp ningas = {this.state.ningas} />
-        <AddNiga />
+        <AddNiga AddData = {this.AddData} />
       </div>
 
     )
