@@ -24,12 +24,21 @@ class App extends Component{
 
   }
 
+  // function for deleting data
+  deleteData =  (id) => {
+    let Datadelete = this.state.ningas.filter(savedata =>{
+      return savedata.id !== id
+    });
+    this.setState({
+      ningas: Datadelete
+    })
+  }
   render(){
     return (
       <div className="app-connect">
         {/* <Dataapp /> */}
   
-        <Nestapp ningas = {this.state.ningas} />
+        <Nestapp deleteData={this.deleteData} ningas = {this.state.ningas} />
         <AddNiga AddData = {this.AddData} />
       </div>
 
