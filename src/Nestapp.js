@@ -1,7 +1,7 @@
 import React from 'react';
 
 // function
-const  Nestapp = ({ ningas }) => {
+const  Nestapp = ({ ningas, deleteData}) => {
 
         // functin to display each data from array
         const ningasList = ningas.map(show => {
@@ -10,6 +10,7 @@ const  Nestapp = ({ ningas }) => {
                     <div>Name: {show.name}</div><br/>
                     <div>Age:  {show.age}</div><br/>
                     <div>Balt: {show.belt}</div><br/>
+                    <button onClick={ () => {deleteData(show.id)}}>Delete</button>
                 </div>
             ): null;    
         })
