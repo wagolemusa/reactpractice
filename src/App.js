@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './Todos';
+import AddTodos from './AddTodos';
 
 class App extends Component{
   state = {
@@ -10,21 +11,32 @@ class App extends Component{
 }
 
 // function to delete todos.
-deleteTodo = (id) => {
-  const todos = this.state.todos.filter(todo => {
-    return todo.id !==id
-  });
-  this.setState({
-    todos
-  })
-}
+  deleteTodo = (id) => {
+    const todos = this.state.todos.filter(todo => {
+      return todo.id !==id
+   });
+    this.setState({
+      todos
+   })
+  }
+  // function to creacte tode
+  addTodo = (todo) => {
+    todo.id = Math.random();
+    let todos = [...this.state.todos, todo];
+    this.setState({
+      todos
+    })
+        
+  }
+
   render(){
     return (
       <div className="app-connect container">
         <h1 className="center blue-text">Todo's</h1>
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
-      </div>
+        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} value={this.state.content}/>
+        <AddTodos addTodo={this.addTodo} />
 
+      </div>
     )
   }
 }
