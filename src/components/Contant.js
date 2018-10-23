@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Contant = () => {
+const Contant = (props) => {
+    // setTimeout(() => {
+    //     props.history.push('/about')
+    // }, 2000);
     return (
         <div className="container">
             <h4 className="center">Contant</h4>
