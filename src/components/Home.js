@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
-import Todos from '../Todos';
-import AddTodos from '../AddTodos';
+// import Todos from '../Todos';
+// import AddTodos from '../AddTodos';
+import axios from 'axios';
+
 class Home extends Component{
   state = {
-    todos:[
-      {id:1, content: 'Buy same goods'},
-      {id:2, content: 'Play cards'}
-  ]
-}
-
-// function to delete todos.
-  deleteTodo = (id) => {
-    const todos = this.state.todos.filter(todo => {
-      return todo.id !==id
-   });
-    this.setState({
-      todos
-   })
+    entre: []
   }
-  // function to creacte tode
-  addTodo = (todo) => {
-    todo.id = Math.random();
-    let todos = [...this.state.todos, todo];
-    this.setState({
-      todos
-    })
-        
-  }
-
+  componentDidMount(){
+    // axios.get('https://dairyapp.herokuapp.com/api/v2/all_entries')
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then(res => {
+        this.setState({
+          entre: res.data.slice(0,10)
+        })
+        // console.log(res)
+      })
+    }
   render(){
+    const { entre } = this.state;
+    const postList = entre.length ? (
+      entre.map(post => {
+        return(
+          <div className="post card" key={post.id}>
+            <div className="card-content">
+              <span className="card-title">{post.title}</span>
+                <p>{post.body}</p>
+            </div>
+          </div>
+        )
+      })
+    ):(
+      <div className="centre">No post yet</div>
+    )
     return (
       
         <div className="app-connect container">
-
-          <h1 className="center blue-text">Todo's</h1>
-          <Todos todos={this.state.todos} deleteTodo={this.deleteTodo}/>
-          <AddTodos addTodo={this.addTodo} />
-
+          {postList}
         </div>
 
     )
