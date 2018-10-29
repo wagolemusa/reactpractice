@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 
 class About extends Component{
+
+  
   render(){
     console.log(this.props)
     const { datas } = this.props;
@@ -17,7 +19,7 @@ class About extends Component{
               <Link to={{pathname: '/about/' + data.id}}>
               <span className="card-title">{data.title}</span>
               </Link>
-                <p>{data.body}</p>
+                <p>{data.body}</p><br/>
             </div>
           </div>
         )
@@ -38,8 +40,11 @@ class About extends Component{
 
 // function to retrive data from reducers
 const mapStateToProps = (state) => {
+    let id 
     return {
         datas: state.datas
     }
 }
+
+
 export default connect(mapStateToProps)(About)
