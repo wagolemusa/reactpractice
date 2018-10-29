@@ -7,17 +7,17 @@ import { connect } from 'react-redux'
 class About extends Component{
   render(){
     console.log(this.props)
-    const { posts } = this.props;
-    const postList = posts.length ? (
-      posts.map(post => {
+    const { datas } = this.props;
+    const dataList = datas.length ? (
+        datas.map(data => {
         return(
-          <div className="post card" key={post.id}>
+          <div className="post card" key={data.id}>
             <img src={musa} alt="refuge"></img>
             <div className="card-content">
-              <Link to={'/' + post.id}>
-              <span className="card-title">{post.title}</span>
+              <Link to={{pathname: '/about/' + data.id}}>
+              <span className="card-title">{data.title}</span>
               </Link>
-                <p>{post.body}</p>
+                <p>{data.body}</p>
             </div>
           </div>
         )
@@ -28,7 +28,7 @@ class About extends Component{
     return (
       
         <div className="app-connect container">
-          {postList}
+          {dataList}
         </div>
 
     )
@@ -39,7 +39,7 @@ class About extends Component{
 // function to retrive data from reducers
 const mapStateToProps = (state) => {
     return {
-        posts: state.posts
+        datas: state.datas
     }
 }
 export default connect(mapStateToProps)(About)
