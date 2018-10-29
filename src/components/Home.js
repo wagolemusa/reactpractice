@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import Todos from '../Todos';
-// import AddTodos from '../AddTodos';
+
 import axios from 'axios';
 import  { Link } from  'react-router-dom'
 
@@ -15,7 +14,6 @@ class Home extends Component{
         this.setState({
           entre: res.data.slice(0,10)
         })
-        // console.log(res)
       })
     }
   render(){
