@@ -1,14 +1,45 @@
-import React from 'react'
-import Rainbow from '../hoc/Rainbow';
+import React, { Component } from 'react';
+import  { Link } from  'react-router-dom'
+import musa from '../musa.JPG'
+import { connect } from 'react-redux'
 
-const About = () => {
-    return (
-        <div className="container">
-            <h4 className="center">About</h4>
-            <h1>Create Wallet API</h1>
-            <p>To use this API, you will need to run small local service which be responsible for managing your Blockchain Wallet. </p>
-        </div>
+
+class About extends Component{
+  render(){
+    console.log(this.props)
+    const { posts } = this.props;
+    const postList = posts.length ? (
+      posts.map(post => {
+        return(
+          <div className="post card" key={post.id}>
+            <img src={musa} alt="refuge"></img>
+            <div className="card-content">
+              <Link to={'/' + post.id}>
+              <span className="card-title">{post.title}</span>
+              </Link>
+                <p>{post.body}</p>
+            </div>
+          </div>
+        )
+      })
+    ):(
+      <div className="centre">No post yet</div>
     )
+    return (
+      
+        <div className="app-connect container">
+          {postList}
+        </div>
+
+    )
+  }
 }
 
-export default  Rainbow(About)
+
+// function to retrive data from reducers
+const mapStateToProps = (state) => {
+    return {
+        posts: state.posts
+    }
+}
+export default connect(mapStateToProps)(About)
