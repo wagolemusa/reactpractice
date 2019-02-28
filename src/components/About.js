@@ -40,7 +40,7 @@ class About extends Component{
 
 // function to retrive data from reducers
 const mapStateToProps = (state) => {
-    let id 
+    // let id 
     return {
         datas: state.datas
     }
