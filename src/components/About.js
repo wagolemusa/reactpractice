@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 
 class About extends Component{
 
-  
   render(){
     console.log(this.props)
     const { datas } = this.props;

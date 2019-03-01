@@ -6,6 +6,7 @@ import Contant from './components/Contant';
 import Home from './components/Home';
 import Post from './components/Post';
 import Blog from './components/Blog';
+import Userform from './components/Userform';
 
 class App extends Component{
   
@@ -16,6 +17,7 @@ class App extends Component{
           <Navbar />
             <Switch>
               <Route exact path='/' component={Home} />
+              <Route path='/userform' component={Userform} />
               <Route path='/about' component={About} />
               <Route path='/contact' component={Contant} />
               <Route path="/:post_id" component={Post} />
